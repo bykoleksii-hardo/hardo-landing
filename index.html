@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en" style="--gold: #C8A35A; --gold-2: #C8A35A; --navy: #0E1E36;"><head>
+<style data-omelette-injected="">html,body{background:transparent}</style><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HARDO — Land Your IB Offer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,30..100&amp;family=Inter+Tight:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    /* tokens */
+    --cream:        #F2ECDF;       /* page bg */
+    --cream-2:      #EAE2D0;       /* cards */
+    --cream-3:      #DDD3BD;       /* hairline tint */
+    --paper:        #FBF7EE;       /* lifted surface */
+    --navy:         #0E1E36;       /* primary */
+    --navy-2:       #14243F;
+    --navy-3:       #1B2D4D;
+    --ink:          #11161E;
+    --ink-2:        #2A2F38;
+    --muted:        #6A6354;
+    --muted-2:      #8A816C;
+    --line:         rgba(14,30,54,0.14);
+    --line-2:       rgba(14,30,54,0.22);
+    --line-cream:   rgba(220,210,185,0.55);
+    --gold:         oklch(0.78 0.09 80);     /* accent — antique brass */
+    --gold-2:       oklch(0.68 0.10 76);
+    --signal:       oklch(0.62 0.18 25);     /* live recording dot */
+
+    --radius:       14px;
+    --radius-sm:    10px;
+    --maxw:         1240px;
+
+    --serif: "Fraunces", "Times New Roman", Georgia, serif;
+    --sans:  "Inter Tight", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono:  "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{background:var(--cream)}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background:var(--cream);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    font-size:16px;
+    line-height:1.55;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--navy);color:var(--cream)}
+
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:default}
+
+  /* paper grain — very subtle */
+  body::before{
+    content:"";
+    position:fixed;inset:0;pointer-events:none;z-index:0;
+    background-image:
+      radial-gradient(rgba(14,30,54,0.025) 1px, transparent 1px),
+      radial-gradient(rgba(14,30,54,0.018) 1px, transparent 1px);
+    background-size: 3px 3px, 7px 7px;
+    background-position: 0 0, 1px 2px;
+    mix-blend-mode:multiply;
+    opacity:.7;
+  }
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;position:relative;z-index:1}
+
+  /* ───────────── eyebrow / labels ───────────── */
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+    display:inline-flex;align-items:center;gap:8px;
+    font-weight:500;
+  }
+  .eyebrow .dot{
+    width:4px;height:4px;border-radius:50%;background:var(--muted-2);
+    display:inline-block;
+  }
+  .eyebrow.on-navy{color:rgba(242,236,223,0.65)}
+  .eyebrow.on-navy .dot{background:var(--gold)}
+
+  /* ───────────── nav ───────────── */
+  nav.top{
+    position:sticky;top:0;z-index:50;
+    background:color-mix(in oklab, var(--cream) 88%, transparent);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:.5px solid var(--line);
+  }
+  nav.top .row{
+    display:flex;align-items:center;justify-content:space-between;
+    height:64px;
+  }
+  .logo{display:flex;align-items:center;gap:12px}
+  .logo-mark{
+    width:34px;height:34px;border-radius:8px;
+    background:var(--navy);
+    display:grid;place-items:center;
+    color:var(--cream);
+    position:relative;
+    overflow:hidden;
+  }
+  .logo-mark svg{width:20px;height:20px}
+  .logo-word{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:20px;
+    letter-spacing:0.12em;
+    font-variation-settings:"opsz" 144, "SOFT" 30;
+    color:var(--ink);
+  }
+  .nav-links{display:flex;align-items:center;gap:28px}
+  .nav-links a{
+    font-size:13.5px;color:var(--ink-2);
+    font-weight:500;
+    position:relative;padding:6px 0;
+  }
+  .nav-links a:hover{color:var(--navy)}
+  .nav-links a.active::after{
+    content:"";position:absolute;left:0;right:0;bottom:-22px;
+    height:2px;background:var(--navy);
+  }
+  .nav-cta{
+    display:flex;gap:10px;align-items:center;
+  }
+  .nav-cta .ghost{
+    font-size:13px;color:var(--ink-2);font-weight:500;
+  }
+
+  /* ───────────── buttons ───────────── */
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 22px;
+    border-radius:999px;
+    border:.5px solid transparent;
+    font-size:14px;font-weight:500;
+    letter-spacing:0.01em;
+    transition:transform .15s ease, background .15s ease, color .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px)}
+  .btn-primary{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+  .btn-primary:hover{background:var(--navy);border-color:var(--navy)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-2)}
+  .btn-ghost:hover{background:rgba(14,30,54,0.04)}
+  .btn-on-navy{background:var(--cream);color:var(--navy);border-color:var(--cream)}
+  .btn-on-navy:hover{background:var(--paper);border-color:var(--paper)}
+  .btn-ghost-on-navy{
+    background:transparent;color:var(--cream);
+    border-color:rgba(242,236,223,0.28);
+  }
+  .btn-ghost-on-navy:hover{
+    background:rgba(242,236,223,0.07);
+    border-color:rgba(242,236,223,0.5);
+  }
+  .btn-sm{padding:10px 16px;font-size:13px}
+  .btn .arrow{
+    width:14px;height:14px;display:inline-block;
+    transition:transform .2s ease;
+  }
+  .btn:hover .arrow{transform:translateX(3px)}
+
+  /* ───────────── hero ───────────── */
+  section.hero{
+    position:relative;
+    background:var(--navy);
+    color:var(--cream);
+    overflow:hidden;
+    padding:80px 0 100px;
+    isolation:isolate;
+  }
+  .hero::before{
+    /* faint vertical lines, like a financial document */
+    content:"";position:absolute;inset:0;
+    background-image:linear-gradient(90deg, rgba(242,236,223,0.04) 1px, transparent 1px);
+    background-size: 96px 100%;
+    pointer-events:none;
+    mask-image:linear-gradient(180deg, transparent, black 20%, black 80%, transparent);
+  }
+  .hero::after{
+    content:"";position:absolute;inset:auto -10% -40% -10%;
+    height:60%;
+    background:radial-gradient(ellipse at 50% 0%, rgba(220,180,110,0.08), transparent 60%);
+    pointer-events:none;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.05fr 1.15fr;
+    gap:64px;
+    align-items:center;
+    position:relative;z-index:2;
+  }
+  .hero-copy{padding-right:8px}
+  .hero h1{
+    font-family:var(--serif);
+    font-weight:300;
+    font-variation-settings:"opsz" 144, "SOFT" 50;
+    font-size:clamp(44px, 5.4vw, 76px);
+    line-height:1.02;
+    letter-spacing:-0.02em;
+    margin: 22px 0 0;
+    color:var(--cream);
+    text-wrap:balance;
+  }
+  .hero h1 em{
+    font-style:italic;
+    font-weight:300;
+    color:var(--gold);
+  }
+  .hero h1 .amp{
+    font-style:italic;
+    font-weight:300;
+    color:rgba(242,236,223,0.55);
+  }
+  .hero-sub{
+    margin-top:26px;
+    font-size:17px;
+    line-height:1.55;
+    color:rgba(242,236,223,0.72);
+    max-width:480px;
+    font-weight:400;
+  }
+  .hero-cta{
+    margin-top:36px;
+    display:flex;gap:12px;align-items:center;flex-wrap:wrap;
+  }
+  .hero-cta .meta{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.1em;
+    color:rgba(242,236,223,0.5);
+    text-transform:uppercase;
+    margin-left:6px;
+  }
+
+  /* hero stats strip */
+  .hero-meta{
+    margin-top:54px;
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    border-top:.5px solid rgba(242,236,223,0.16);
+    padding-top:22px;
+  }
+  .hero-meta .cell{padding-right:18px}
+  .hero-meta .num{
+    font-family:var(--serif);
+    font-variation-settings:"opsz" 144;
+    font-weight:300;
+    font-size:34px;
+    color:var(--cream);
+    line-height:1;
+    letter-spacing:-0.01em;
+    font-variant-numeric:tabular-nums;
+  }
+  .hero-meta .num sup{
+    font-size:14px;color:var(--gold);font-feature-settings:"sups";
+    margin-left:2px;font-weight:400;
+    vertical-align:super;
+  }
+  .hero-meta .lbl{
+    font-family:var(--mono);
+    font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;
+    color:rgba(242,236,223,0.5);
+    margin-top:8px;
+  }
+
+  /* ───────────── interview mockup ───────────── */
+  .mockup-stage{
+    position:relative;
+    perspective:2400px;
+  }
+  .mockup{
+    position:relative;
+    background:#0A1628;
+    border-radius:18px;
+    border:.5px solid rgba(242,236,223,0.12);
+    box-shadow:
+      0 1px 0 rgba(242,236,223,0.06) inset,
+      0 30px 80px -20px rgba(0,0,0,0.55),
+      0 60px 120px -30px rgba(0,0,0,0.4);
+    overflow:hidden;
+    transform: rotateY(-3deg) rotateX(2deg);
+    transform-origin: center center;
+  }
+  .mockup-bar{
+    height:34px;
+    background:#06101F;
+    border-bottom:.5px solid rgba(242,236,223,0.08);
+    display:flex;align-items:center;
+    padding:0 14px;gap:8px;
+  }
+  .mockup-bar .dot{width:9px;height:9px;border-radius:50%;background:rgba(242,236,223,0.14)}
+  .mockup-bar .url{
+    margin-left:14px;
+    font-family:var(--mono);font-size:10.5px;
+    color:rgba(242,236,223,0.42);
+    letter-spacing:0.04em;
+  }
+  .mockup-bar .right{
+    margin-left:auto;
+    font-family:var(--mono);font-size:10.5px;
+    color:rgba(242,236,223,0.35);
+    display:flex;align-items:center;gap:8px;
+  }
+  .mockup-bar .live{
+    display:inline-flex;align-items:center;gap:6px;
+    color:var(--signal);
+  }
+  .mockup-bar .live::before{
+    content:"";width:6px;height:6px;border-radius:50%;background:var(--signal);
+    box-shadow:0 0 0 0 var(--signal);
+    animation:pulse 1.6s ease-out infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(220,80,60,0.6)}
+    70%{box-shadow:0 0 0 8px rgba(220,80,60,0)}
+    100%{box-shadow:0 0 0 0 rgba(220,80,60,0)}
+  }
+
+  .mockup-body{
+    padding:26px 28px 28px;
+    display:grid;
+    grid-template-rows:auto 1fr auto;
+    gap:22px;
+    min-height:460px;
+    color:rgba(242,236,223,0.92);
+  }
+  .mockup-head{
+    display:flex;align-items:flex-start;justify-content:space-between;gap:16px;
+  }
+  .mockup-head .label{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;
+    color:rgba(242,236,223,0.5);
+  }
+  .mockup-head .question-num{
+    font-family:var(--serif);font-weight:300;font-size:13px;
+    color:var(--gold);letter-spacing:0.12em;
+    font-variation-settings:"opsz" 144;
+  }
+  .mockup-firm{
+    display:flex;align-items:center;gap:10px;
+    font-family:var(--mono);font-size:11px;
+    color:rgba(242,236,223,0.55);
+    letter-spacing:0.06em;
+  }
+  .mockup-firm .badge{
+    width:22px;height:22px;border-radius:5px;
+    background:rgba(242,236,223,0.06);
+    display:grid;place-items:center;
+    font-family:var(--serif);font-size:11px;color:var(--gold);
+    font-weight:500;
+  }
+
+  .mockup-q{
+    font-family:var(--serif);
+    font-weight:300;
+    font-variation-settings:"opsz" 144, "SOFT" 30;
+    font-size:23px;
+    line-height:1.32;
+    color:var(--cream);
+    letter-spacing:-0.005em;
+  }
+  .mockup-q .hl{
+    background:linear-gradient(180deg, transparent 60%, rgba(220,180,110,0.22) 60%);
+    padding:0 2px;
+  }
+
+  .mockup-meter{
+    display:flex;align-items:center;gap:14px;
+    padding:14px 16px;
+    background:rgba(242,236,223,0.04);
+    border:.5px solid rgba(242,236,223,0.08);
+    border-radius:10px;
+  }
+  .meter-label{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;
+    color:rgba(242,236,223,0.5);min-width:62px;
+  }
+  .waveform{
+    flex:1;display:flex;align-items:center;gap:3px;height:36px;
+  }
+  .waveform i{
+    display:block;width:3px;border-radius:2px;
+    background:linear-gradient(180deg, var(--gold), rgba(220,180,110,0.45));
+    animation:wv 1.2s ease-in-out infinite;
+  }
+  @keyframes wv{
+    0%,100%{height:30%}
+    50%{height:90%}
+  }
+
+  .mockup-foot{
+    display:flex;align-items:center;justify-content:space-between;
+    border-top:.5px solid rgba(242,236,223,0.08);
+    padding-top:16px;
+  }
+  .timer{
+    display:flex;align-items:baseline;gap:10px;
+  }
+  .timer .t{
+    font-family:var(--serif);
+    font-weight:300;
+    font-variation-settings:"opsz" 144;
+    font-size:48px;
+    line-height:1;
+    color:var(--cream);
+    font-variant-numeric:tabular-nums;
+    letter-spacing:-0.02em;
+  }
+  .timer .t .sep{color:rgba(242,236,223,0.35);padding:0 1px}
+  .timer .t.warn{color:#E8A35A}
+  .timer .t.danger{color:#E5705C}
+  .timer-meta{
+    display:flex;flex-direction:column;gap:4px;
+  }
+  .timer-meta .lbl{
+    font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
+    color:rgba(242,236,223,0.5);
+  }
+  .timer-meta .pace{
+    font-family:var(--mono);font-size:11px;
+    color:rgba(242,236,223,0.7);
+  }
+  .mockup-actions{display:flex;gap:8px}
+  .mockup-actions .pill{
+    padding:8px 12px;font-size:11.5px;
+    font-family:var(--mono);
+    letter-spacing:0.08em;text-transform:uppercase;
+    background:rgba(242,236,223,0.06);
+    color:rgba(242,236,223,0.75);
+    border:.5px solid rgba(242,236,223,0.1);
+    border-radius:7px;
+  }
+  .mockup-actions .pill.primary{
+    background:var(--cream);color:var(--navy);border-color:var(--cream);
+  }
+
+  /* floating side cards */
+  .float{
+    position:absolute;z-index:3;
+    background:var(--paper);
+    color:var(--ink);
+    border:.5px solid var(--line);
+    border-radius:12px;
+    padding:14px 16px;
+    box-shadow:0 18px 40px -12px rgba(0,0,0,0.35);
+    font-size:12.5px;
+    line-height:1.45;
+    width:220px;
+  }
+  .float .ttl{
+    font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:8px;
+    display:flex;align-items:center;justify-content:space-between;gap:8px;
+  }
+  .float .ttl .score{
+    font-family:var(--serif);font-size:13px;color:var(--navy);font-weight:500;
+    letter-spacing:0.02em;
+  }
+  .float .body{color:var(--ink-2);font-size:12.5px}
+  .float .body .name{font-weight:500;color:var(--navy)}
+  .float-1{top:-30px;left:-46px;transform:rotate(-3deg)}
+  .float-2{bottom:-22px;right:-30px;transform:rotate(2.5deg);width:240px}
+
+  .feedback-row{
+    display:flex;align-items:center;gap:8px;margin-top:6px;
+    font-family:var(--mono);font-size:10.5px;
+    color:var(--muted);letter-spacing:0.05em;
+  }
+  .feedback-row .bar{
+    flex:1;height:3px;border-radius:2px;background:var(--cream-3);position:relative;overflow:hidden;
+  }
+  .feedback-row .bar i{
+    position:absolute;left:0;top:0;bottom:0;background:var(--navy);border-radius:2px;
+  }
+  .feedback-row .v{color:var(--navy);font-weight:500}
+
+  /* ───────────── sections ───────────── */
+  section{position:relative;z-index:1}
+  .sec{padding:120px 0}
+  .sec-tight{padding:80px 0}
+  .sec-head{
+    display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;
+    margin-bottom:64px;
+  }
+  .sec-head h2{
+    font-family:var(--serif);
+    font-weight:300;
+    font-variation-settings:"opsz" 144, "SOFT" 40;
+    font-size:clamp(38px, 4.4vw, 60px);
+    line-height:1.04;
+    letter-spacing:-0.02em;
+    margin:14px 0 0;
+    color:var(--ink);
+    text-wrap:balance;
+    max-width:18ch;
+  }
+  .sec-head h2 em{font-style:italic;color:var(--navy);font-weight:300}
+  .sec-head .desc{
+    font-size:16px;line-height:1.6;color:var(--muted);
+    max-width:46ch;
+  }
+
+  /* ───────────── ticker / banks ───────────── */
+  .ticker{
+    border-top:.5px solid var(--line);
+    border-bottom:.5px solid var(--line);
+    padding:22px 0;
+    background:color-mix(in oklab, var(--cream) 92%, var(--cream-2));
+  }
+  .ticker .row{
+    display:flex;align-items:center;gap:40px;
+    overflow:hidden;
+    mask-image:linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
+  }
+  .ticker .lead{
+    flex:0 0 auto;
+    font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--muted);padding-right:20px;border-right:.5px solid var(--line);
+  }
+  .ticker .marquee{
+    display:flex;gap:54px;
+    animation:marq 38s linear infinite;
+  }
+  @keyframes marq{
+    from{transform:translateX(0)}
+    to{transform:translateX(-50%)}
+  }
+  .firm{
+    font-family:var(--serif);
+    font-variation-settings:"opsz" 144;
+    font-weight:400;
+    font-size:22px;
+    color:var(--navy);
+    letter-spacing:0.02em;
+    white-space:nowrap;
+    opacity:0.78;
+    display:flex;align-items:center;gap:14px;
+  }
+  .firm em{font-style:italic;font-weight:300;color:var(--muted)}
+  .firm-dot{
+    width:5px;height:5px;border-radius:50%;background:var(--navy);
+    opacity:0.4;
+  }
+
+  /* ───────────── how it works ───────────── */
+  .steps{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .step{
+    background:var(--paper);
+    border:.5px solid var(--line);
+    border-radius:var(--radius);
+    padding:28px;
+    display:flex;flex-direction:column;gap:18px;
+    min-height:440px;
+    position:relative;
+    overflow:hidden;
+  }
+  .step .num{
+    font-family:var(--serif);
+    font-variation-settings:"opsz" 144;
+    font-weight:300;
+    font-size:54px;
+    line-height:1;
+    color:var(--navy);
+    letter-spacing:-0.02em;
+  }
+  .step .num::after{
+    content:"";display:inline-block;width:34px;height:1px;background:var(--gold-2);
+    vertical-align:middle;margin-left:14px;margin-bottom:14px;
+  }
+  .step .ttl{
+    font-family:var(--serif);
+    font-variation-settings:"opsz" 144, "SOFT" 30;
+    font-weight:400;
+    font-size:24px;
+    line-height:1.18;
+    color:var(--ink);
+    letter-spacing:-0.005em;
+  }
+  .step .desc{font-size:14.5px;color:var(--muted);line-height:1.55;max-width:30ch}
+  .step .visual{
+    margin-top:auto;
+    background:var(--cream-2);
+    border:.5px solid var(--line);
+    border-radius:10px;
+    padding:14px;
+    font-family:var(--mono);font-size:11px;
+    color:var(--ink-2);
+    min-height:170px;
+    display:flex;flex-direction:column;gap:10px;
+  }
+  .step .visual .row{
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .step .visual .key{color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;font-size:10px}
+  .step .visual .val{color:var(--navy);font-weight:500;letter-spacing:0.04em}
+  .step .visual hr{border:0;border-top:.5px solid var(--line);margin:2px 0}
+  .step .visual .seg{
+    height:4px;border-radius:2px;background:var(--cream-3);position:relative;overflow:hidden;
+  }
+  .step .visual .seg i{
+    position:absolute;left:0;top:0;bottom:0;background:var(--navy);border-radius:2px;
+  }
+
+  .step .visual.s1{
+    display:flex;flex-direction:column;justify-content:space-between;
+  }
+  .step .visual.s2{align-items:center;justify-content:center;text-align:center}
+  .step .visual.s2 .big-time{
+    font-family:var(--serif);font-weight:300;font-size:46px;color:var(--navy);
+    font-variation-settings:"opsz" 144;font-variant-numeric:tabular-nums;letter-spacing:-0.02em;
+    line-height:1;
+  }
+  .step .visual.s2 .wf{
+    display:flex;gap:3px;align-items:center;justify-content:center;height:28px;margin-top:8px;
+  }
+  .step .visual.s2 .wf i{
+    display:block;width:3px;border-radius:2px;background:var(--navy);
+  }
+
+  .step .visual.s3 .grade{
+    display:flex;justify-content:space-between;align-items:baseline;
+  }
+  .step .visual.s3 .grade .g{
+    font-family:var(--serif);font-weight:400;font-size:30px;color:var(--navy);
+    letter-spacing:-0.01em;font-variation-settings:"opsz" 144;
+  }
+  .step .visual.s3 .grade .out{font-family:var(--mono);color:var(--muted);font-size:11px}
+
+  /* ───────────── sample question / demo ───────────── */
+  .demo{
+    background:var(--cream-2);
+    border-top:.5px solid var(--line);
+    border-bottom:.5px solid var(--line);
+  }
+  .demo-grid{
+    display:grid;grid-template-columns: 1fr 1.15fr;
+    gap:64px;align-items:center;
+  }
+  .demo-card{
+    background:var(--paper);
+    border:.5px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:0 30px 60px -30px rgba(14,30,54,0.18);
+  }
+  .demo-card .top{
+    padding:14px 20px;
+    border-bottom:.5px solid var(--line);
+    display:flex;align-items:center;justify-content:space-between;
+    background:var(--cream);
+  }
+  .demo-card .top .l{font-family:var(--mono);font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted)}
+  .demo-card .top .t{
+    font-family:var(--serif);font-size:16px;color:var(--navy);font-weight:500;
+    font-variant-numeric:tabular-nums;
+  }
+  .demo-card .body{padding:26px 24px 22px}
+  .demo-card .q{
+    font-family:var(--serif);font-weight:300;font-size:24px;line-height:1.32;color:var(--ink);
+    font-variation-settings:"opsz" 144;letter-spacing:-0.005em;
+  }
+  .demo-card .opts{
+    margin-top:18px;display:flex;flex-direction:column;gap:8px;
+  }
+  .demo-card .opt{
+    border:.5px solid var(--line);border-radius:9px;
+    padding:12px 14px;display:flex;justify-content:space-between;align-items:center;
+    font-size:14px;color:var(--ink-2);background:var(--cream);
+  }
+  .demo-card .opt .k{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.1em}
+  .demo-card .opt.sel{
+    background:var(--navy);color:var(--cream);border-color:var(--navy);
+  }
+  .demo-card .opt.sel .k{color:rgba(242,236,223,0.5)}
+  .demo-card .foot{
+    margin-top:18px;
+    display:flex;align-items:center;justify-content:space-between;
+    padding-top:16px;border-top:.5px solid var(--line);
+  }
+  .demo-card .foot .pace{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.04em}
+  .demo-card .foot .submit{
+    font-size:13px;font-family:var(--mono);letter-spacing:0.06em;text-transform:uppercase;
+    padding:8px 14px;background:var(--ink);color:var(--cream);border-radius:7px;
+  }
+
+  /* ───────────── feedback / scorecard ───────────── */
+  .score{
+    display:grid;grid-template-columns:1fr 1fr;gap:24px;
+  }
+  .score-card{
+    background:var(--paper);
+    border:.5px solid var(--line);
+    border-radius:var(--radius);
+    padding:28px;
+  }
+  .score-card .hd{
+    display:flex;align-items:center;justify-content:space-between;
+    border-bottom:.5px solid var(--line);padding-bottom:18px;margin-bottom:18px;
+  }
+  .score-card .hd .l{font-family:var(--mono);font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted)}
+  .score-card .hd .grade{
+    font-family:var(--serif);font-weight:400;font-size:34px;color:var(--navy);
+    font-variation-settings:"opsz" 144;
+  }
+  .crit{display:flex;flex-direction:column;gap:14px}
+  .crit-row{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}
+  .crit-row .name{font-size:14px;color:var(--ink-2)}
+  .crit-row .bar{
+    height:5px;width:160px;border-radius:3px;background:var(--cream-3);position:relative;overflow:hidden;
+    margin-left:auto;
+  }
+  .crit-row .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--navy);border-radius:3px}
+  .crit-row .v{font-family:var(--mono);font-size:11.5px;color:var(--navy);width:42px;text-align:right;font-variant-numeric:tabular-nums}
+
+  .notes{
+    background:var(--paper);border:.5px solid var(--line);border-radius:var(--radius);padding:28px;
+  }
+  .notes h4{
+    font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--muted);font-weight:500;margin:0 0 14px;
+  }
+  .notes ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+  .notes li{
+    font-family:var(--serif);font-weight:300;font-size:18px;line-height:1.45;color:var(--ink);
+    font-variation-settings:"opsz" 144;letter-spacing:-0.005em;
+    padding-left:18px;position:relative;
+  }
+  .notes li::before{
+    content:"";position:absolute;left:0;top:11px;width:8px;height:1px;background:var(--gold-2);
+  }
+  .notes li em{
+    font-style:normal;color:var(--navy);
+    background:linear-gradient(180deg, transparent 65%, rgba(220,180,110,0.3) 65%);
+    padding:0 2px;
+  }
+
+  /* ───────────── testimonials ───────────── */
+  .testis{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  }
+  .testi{
+    background:var(--paper);border:.5px solid var(--line);border-radius:var(--radius);padding:28px;
+    display:flex;flex-direction:column;gap:18px;
+    min-height:280px;
+  }
+  .testi blockquote{
+    margin:0;
+    font-family:var(--serif);font-weight:300;font-size:20px;line-height:1.4;
+    color:var(--ink);letter-spacing:-0.005em;
+    font-variation-settings:"opsz" 144, "SOFT" 30;
+    text-wrap:pretty;
+  }
+  .testi blockquote::before{
+    content:"\\201C";font-family:var(--serif);font-size:46px;color:var(--gold-2);
+    line-height:0;display:block;margin-bottom:18px;
+  }
+  .testi .who{
+    margin-top:auto;
+    display:flex;align-items:center;gap:12px;
+    border-top:.5px solid var(--line);padding-top:16px;
+  }
+  .testi .ava{
+    width:36px;height:36px;border-radius:50%;
+    background:var(--navy);color:var(--cream);
+    display:grid;place-items:center;
+    font-family:var(--serif);font-size:14px;font-weight:500;
+    letter-spacing:0.02em;
+  }
+  .testi .who .name{font-size:14px;color:var(--ink);font-weight:500}
+  .testi .who .role{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.04em;margin-top:2px}
+
+  /* ───────────── pricing ───────────── */
+  .pricing{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
+  .price{
+    background:var(--paper);border:.5px solid var(--line);border-radius:var(--radius);
+    padding:32px 28px 28px;
+    display:flex;flex-direction:column;gap:18px;
+    position:relative;
+    min-height:480px;
+  }
+  .price.feature{
+    background:var(--navy);color:var(--cream);border-color:var(--navy);
+  }
+  .price .tier{
+    font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--muted);font-weight:500;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .price.feature .tier{color:rgba(242,236,223,0.6)}
+  .price .tag{
+    font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;
+    background:var(--gold);color:var(--navy);padding:4px 8px;border-radius:5px;font-weight:500;
+  }
+  .price .num{
+    display:flex;align-items:baseline;gap:6px;
+  }
+  .price .num .d{
+    font-family:var(--serif);font-weight:300;font-size:64px;line-height:1;color:var(--ink);
+    font-variation-settings:"opsz" 144;letter-spacing:-0.02em;font-variant-numeric:tabular-nums;
+  }
+  .price.feature .num .d{color:var(--cream)}
+  .price .num .per{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.06em}
+  .price.feature .num .per{color:rgba(242,236,223,0.55)}
+  .price .lead{font-size:14px;color:var(--muted);max-width:30ch;line-height:1.5}
+  .price.feature .lead{color:rgba(242,236,223,0.7)}
+  .price ul{list-style:none;margin:0;padding:14px 0;display:flex;flex-direction:column;gap:10px;border-top:.5px solid var(--line)}
+  .price.feature ul{border-top-color:rgba(242,236,223,0.16)}
+  .price li{
+    font-size:14px;color:var(--ink-2);display:flex;align-items:flex-start;gap:10px;line-height:1.45;
+  }
+  .price.feature li{color:rgba(242,236,223,0.85)}
+  .price li::before{
+    content:"";width:14px;height:14px;border-radius:50%;
+    background:var(--navy);
+    flex:0 0 auto;margin-top:3px;
+    background-image: linear-gradient(135deg, transparent 45%, var(--cream) 45%, var(--cream) 60%, transparent 60%);
+    background-size: 8px 8px;background-position:center;background-repeat:no-repeat;
+  }
+  .price.feature li::before{background-color:var(--gold)}
+  .price li b{font-weight:500;color:var(--ink)}
+  .price.feature li b{color:var(--cream)}
+  .price .cta{margin-top:auto;width:100%;justify-content:center}
+  .price .fine{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:0.04em;margin-top:8px;text-align:center}
+  .price.feature .fine{color:rgba(242,236,223,0.55)}
+
+  /* ───────────── FAQ ───────────── */
+  .faq{display:grid;grid-template-columns:1fr 1fr;gap:0 64px}
+  .faq-item{
+    border-top:.5px solid var(--line);
+    padding:24px 0;
+  }
+  .faq-item:last-child{border-bottom:.5px solid var(--line)}
+  .faq-item .q{
+    font-family:var(--serif);font-weight:400;font-size:20px;line-height:1.3;color:var(--ink);
+    letter-spacing:-0.005em;font-variation-settings:"opsz" 144;
+    display:flex;justify-content:space-between;align-items:flex-start;gap:18px;
+  }
+  .faq-item .q .n{
+    font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.06em;
+    flex:0 0 auto;margin-top:6px;
+  }
+  .faq-item .a{
+    font-size:14.5px;color:var(--muted);line-height:1.6;margin-top:10px;max-width:54ch;
+  }
+
+  /* ───────────── final CTA ───────────── */
+  .final{
+    background:var(--navy);color:var(--cream);
+    border-radius:var(--radius);
+    padding:80px 64px;
+    margin:0 32px 80px;
+    max-width:calc(var(--maxw) - 0px);
+    margin-left:auto;margin-right:auto;
+    position:relative;overflow:hidden;
+  }
+  .final::before{
+    content:"";position:absolute;inset:0;
+    background-image:linear-gradient(90deg, rgba(242,236,223,0.04) 1px, transparent 1px);
+    background-size:96px 100%;
+    mask-image:linear-gradient(180deg, transparent, black 30%, black 70%, transparent);
+  }
+  .final-grid{
+    position:relative;z-index:2;
+    display:grid;grid-template-columns:1.3fr 1fr;gap:64px;align-items:center;
+  }
+  .final h3{
+    font-family:var(--serif);font-weight:300;font-size:clamp(34px,3.6vw,52px);
+    line-height:1.05;letter-spacing:-0.02em;
+    margin:14px 0 0;color:var(--cream);
+    font-variation-settings:"opsz" 144, "SOFT" 50;
+    text-wrap:balance;
+  }
+  .final h3 em{font-style:italic;color:var(--gold);font-weight:300}
+  .final .actions{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+
+  /* ───────────── footer ───────────── */
+  footer{
+    border-top:.5px solid var(--line);
+    padding:48px 0 32px;
+  }
+  .foot-grid{
+    display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;
+    margin-bottom:36px;
+  }
+  .foot-col h5{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--muted);font-weight:500;margin:0 0 14px;
+  }
+  .foot-col a{
+    display:block;font-size:14px;color:var(--ink-2);padding:5px 0;
+  }
+  .foot-col a:hover{color:var(--navy)}
+  .foot-bot{
+    display:flex;justify-content:space-between;align-items:center;
+    padding-top:24px;border-top:.5px solid var(--line);
+    font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.04em;
+  }
+  .foot-bot .legal{display:flex;gap:18px}
+
+  /* responsive */
+  @media (max-width: 980px){
+    .hero-grid{grid-template-columns:1fr;gap:48px}
+    .hero-meta{grid-template-columns:repeat(3,1fr)}
+    .sec-head{grid-template-columns:1fr;gap:14px}
+    .steps{grid-template-columns:1fr}
+    .demo-grid{grid-template-columns:1fr;gap:36px}
+    .score{grid-template-columns:1fr}
+    .testis{grid-template-columns:1fr}
+    .pricing{grid-template-columns:1fr}
+    .faq{grid-template-columns:1fr;gap:0}
+    .final-grid{grid-template-columns:1fr;gap:24px}
+    .final{padding:48px 32px;margin:0 16px 60px}
+    .nav-links{display:none}
+    .float-1,.float-2{display:none}
+    .mockup{transform:none}
+    .foot-grid{grid-template-columns:1fr 1fr;gap:28px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ───────────── NAV ───────────── -->
+<nav class="top">
+  <div class="wrap">
+    <div class="row">
+      <a href="#" class="logo" id="logo-anchor">
+        <span class="logo-mark" id="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="4" y="4" width="16" height="16" rx="2"></rect><path d="M9 8v8M9 12h6M15 8v8"></path></svg></span>
+        <span class="logo-word">HARDO</span>
+      </a>
+      <div class="nav-links">
+        <a href="#how">How it works</a>
+        <a href="#sample">Sample question</a>
+        <a href="#proof">Results</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="nav-cta">
+        <a class="ghost" href="#">Sign in</a>
+        <a class="btn btn-primary btn-sm" href="#pricing">Start free<span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ───────────── HERO ───────────── -->
+<section class="hero" id="hero" style="padding: 80px 0px 100px;">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow on-navy">
+          <span class="dot"></span> Investment banking · Class of 2026
+        </span>
+        <h1>Land your <em>IB</em> offer.<br>Practice under the <em>same pressure</em><br><span class="amp">— that breaks everyone else.</span></h1>
+        <p class="hero-sub">
+          Mock interviews with a 60-second clock, follow-up questions that
+          don't let you off the hook, and feedback graded against the bar at
+          bulge brackets and elite boutiques.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-on-navy" href="#pricing">Try 3 free interviews <span class="arrow">→</span></a>
+          <a class="btn btn-ghost-on-navy" href="#pricing">See pricing</a>
+          <span class="meta">No card required</span>
+        </div>
+
+        <div class="hero-meta">
+          <div class="cell">
+            <div class="num">2,400<sup>+</sup></div>
+            <div class="lbl">Mock interviews / week</div>
+          </div>
+          <div class="cell">
+            <div class="num">71<sup>%</sup></div>
+            <div class="lbl">Convert to superday</div>
+          </div>
+          <div class="cell">
+            <div class="num">14</div>
+            <div class="lbl">Schools at top BB</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mockup-stage">
+        <div class="mockup">
+          <div class="mockup-bar">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="url">hardo.app / interview / session-0421</span>
+            <span class="right">
+              <span class="live">REC · 00:42</span>
+            </span>
+          </div>
+          <div class="mockup-body">
+            <div class="mockup-head">
+              <div>
+                <div class="label">Round 02 — Technical</div>
+                <div class="mockup-firm" style="margin-top:8px">
+                  <span class="badge">M</span>
+                  Morrison &amp; Reed · Industrials Coverage
+                </div>
+              </div>
+              <div class="question-num">QUESTION 04 / 12</div>
+            </div>
+
+            <div class="mockup-q">
+              Walk me through a DCF — and tell me <span class="hl">why</span>
+              an LBO would arrive at a different value for the same target.
+            </div>
+
+            <div class="mockup-meter">
+              <div class="meter-label">Voice</div>
+              <div class="waveform" id="wf"><i style="height:28%;animation-delay:0.00s"></i><i style="height:47%;animation-delay:0.06s"></i><i style="height:53%;animation-delay:0.12s"></i><i style="height:83%;animation-delay:0.18s"></i><i style="height:47%;animation-delay:0.24s"></i><i style="height:42%;animation-delay:0.30s"></i><i style="height:41%;animation-delay:0.36s"></i><i style="height:48%;animation-delay:0.42s"></i><i style="height:73%;animation-delay:0.48s"></i><i style="height:60%;animation-delay:0.54s"></i><i style="height:35%;animation-delay:0.60s"></i><i style="height:37%;animation-delay:0.66s"></i><i style="height:35%;animation-delay:0.72s"></i><i style="height:43%;animation-delay:0.78s"></i><i style="height:45%;animation-delay:0.84s"></i><i style="height:33%;animation-delay:0.90s"></i><i style="height:35%;animation-delay:0.96s"></i><i style="height:49%;animation-delay:1.02s"></i><i style="height:71%;animation-delay:1.08s"></i><i style="height:61%;animation-delay:1.14s"></i><i style="height:83%;animation-delay:1.20s"></i><i style="height:52%;animation-delay:1.26s"></i><i style="height:68%;animation-delay:1.32s"></i><i style="height:35%;animation-delay:1.38s"></i><i style="height:55%;animation-delay:1.44s"></i><i style="height:35%;animation-delay:1.50s"></i><i style="height:42%;animation-delay:1.56s"></i><i style="height:72%;animation-delay:1.62s"></i><i style="height:38%;animation-delay:1.68s"></i><i style="height:48%;animation-delay:1.74s"></i><i style="height:68%;animation-delay:1.80s"></i><i style="height:41%;animation-delay:1.86s"></i><i style="height:56%;animation-delay:1.92s"></i><i style="height:53%;animation-delay:1.98s"></i><i style="height:62%;animation-delay:2.04s"></i><i style="height:30%;animation-delay:2.10s"></i><i style="height:69%;animation-delay:2.16s"></i><i style="height:75%;animation-delay:2.22s"></i><i style="height:58%;animation-delay:2.28s"></i><i style="height:71%;animation-delay:2.34s"></i><i style="height:35%;animation-delay:2.40s"></i><i style="height:35%;animation-delay:2.46s"></i><i style="height:47%;animation-delay:2.52s"></i><i style="height:59%;animation-delay:2.58s"></i><i style="height:46%;animation-delay:2.64s"></i><i style="height:33%;animation-delay:2.70s"></i><i style="height:60%;animation-delay:2.76s"></i><i style="height:66%;animation-delay:2.82s"></i><i style="height:44%;animation-delay:2.88s"></i><i style="height:36%;animation-delay:2.94s"></i><i style="height:29%;animation-delay:3.00s"></i><i style="height:34%;animation-delay:3.06s"></i><i style="height:60%;animation-delay:3.12s"></i><i style="height:74%;animation-delay:3.18s"></i><i style="height:58%;animation-delay:3.24s"></i><i style="height:29%;animation-delay:3.30s"></i></div>
+              <div class="meter-label" style="text-align:right;min-width:auto">Pace · 142 wpm</div>
+            </div>
+
+            <div class="mockup-foot">
+              <div class="timer">
+                <div class="t warn" id="hero-timer">00<span class="sep">:</span>26</div>
+                <div class="timer-meta">
+                  <div class="lbl">Time remaining</div>
+                  <div class="pace">Target answer · 90s</div>
+                </div>
+              </div>
+              <div class="mockup-actions">
+                <span class="pill">Skip</span>
+                <span class="pill primary">Submit ↵</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="float float-1">
+          <div class="ttl">Live transcript <span class="score">82</span></div>
+          <div class="body">
+            "<span class="name">DCF</span> projects unlevered free cash flow,
+            discounts at WACC, terminal value via Gordon growth or exit multiple…"
+          </div>
+          <div class="feedback-row">
+            <span>Clarity</span>
+            <span class="bar"><i style="width:78%"></i></span>
+            <span class="v">B+</span>
+          </div>
+        </div>
+
+        <div class="float float-2">
+          <div class="ttl">After question 03 <span class="score">A−</span></div>
+          <div class="body">
+            <b class="name">Strong</b> — you covered cost of equity correctly.
+            <br>Push harder on <em>terminal value sensitivity</em> next time.
+          </div>
+          <div class="feedback-row">
+            <span>Structure</span>
+            <span class="bar"><i style="width:88%"></i></span>
+            <span class="v">A</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── BANK TICKER ───────────── -->
+<div class="ticker">
+  <div class="wrap">
+    <div class="row">
+      <div class="lead">Where students went, ’23–’25</div>
+      <div class="marquee" id="marq"><span class="firm">Goldman Sachs<span class="firm-dot"></span></span><span class="firm">Morgan Stanley<span class="firm-dot"></span></span><span class="firm">JPMorgan<span class="firm-dot"></span></span><span class="firm">Evercore<span class="firm-dot"></span></span><span class="firm">Centerview<span class="firm-dot"></span></span><span class="firm">Lazard<span class="firm-dot"></span></span><span class="firm">Moelis<span class="firm-dot"></span></span><span class="firm">PJT Partners<span class="firm-dot"></span></span><span class="firm">Perella Weinberg<span class="firm-dot"></span></span><span class="firm">Houlihan Lokey<span class="firm-dot"></span></span><span class="firm">Guggenheim<span class="firm-dot"></span></span><span class="firm">Greenhill<span class="firm-dot"></span></span><span class="firm">Rothschild &amp; Co<span class="firm-dot"></span></span><span class="firm">Jefferies<span class="firm-dot"></span></span><span class="firm">Bank of America<span class="firm-dot"></span></span><span class="firm">Goldman Sachs<span class="firm-dot"></span></span><span class="firm">Morgan Stanley<span class="firm-dot"></span></span><span class="firm">JPMorgan<span class="firm-dot"></span></span><span class="firm">Evercore<span class="firm-dot"></span></span><span class="firm">Centerview<span class="firm-dot"></span></span><span class="firm">Lazard<span class="firm-dot"></span></span><span class="firm">Moelis<span class="firm-dot"></span></span><span class="firm">PJT Partners<span class="firm-dot"></span></span><span class="firm">Perella Weinberg<span class="firm-dot"></span></span><span class="firm">Houlihan Lokey<span class="firm-dot"></span></span><span class="firm">Guggenheim<span class="firm-dot"></span></span><span class="firm">Greenhill<span class="firm-dot"></span></span><span class="firm">Rothschild &amp; Co<span class="firm-dot"></span></span><span class="firm">Jefferies<span class="firm-dot"></span></span><span class="firm">Bank of America<span class="firm-dot"></span></span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ───────────── HOW IT WORKS ───────────── -->
+<section class="sec" id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow"><span class="dot"></span> The method</span>
+        <h2>Three rounds. <em>Real pressure.</em> No second takes.</h2>
+      </div>
+      <p class="desc">
+        Designed with analysts and associates from BB and elite boutique
+        coverage groups. Every question is timed, every answer is graded,
+        and every weakness is catalogued before your next session.
+      </p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="num">01</div>
+        <div>
+          <div class="ttl">Pick your firm &amp; group.</div>
+        </div>
+        <div class="desc">
+          Choose the bank, coverage group and round. We calibrate question
+          difficulty, jargon and follow-up style to that desk.
+        </div>
+        <div class="visual s1">
+          <div class="row"><span class="key">Firm</span><span class="val">MORRISON &amp; REED</span></div>
+          <hr>
+          <div class="row"><span class="key">Group</span><span class="val">M&amp;A · INDUSTRIALS</span></div>
+          <hr>
+          <div class="row"><span class="key">Round</span><span class="val">SUPERDAY · 02 / 04</span></div>
+          <hr>
+          <div class="row"><span class="key">Difficulty</span><span class="val">— — — — ●</span></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">02</div>
+        <div>
+          <div class="ttl">Answer with the clock running.</div>
+        </div>
+        <div class="desc">
+          90-second response window. Live transcription, voice analysis, and
+          the unprompted follow-up question — exactly like the real room.
+        </div>
+        <div class="visual s2">
+          <div class="big-time" id="step-timer">00:::26</div>
+          <div class="key" style="margin-top:6px">Time remaining</div>
+          <div class="wf" id="step-wf"><i style="height:71%;animation-delay:0.00s"></i><i style="height:31%;animation-delay:0.06s"></i><i style="height:41%;animation-delay:0.12s"></i><i style="height:47%;animation-delay:0.18s"></i><i style="height:78%;animation-delay:0.24s"></i><i style="height:80%;animation-delay:0.30s"></i><i style="height:31%;animation-delay:0.36s"></i><i style="height:37%;animation-delay:0.42s"></i><i style="height:78%;animation-delay:0.48s"></i><i style="height:36%;animation-delay:0.54s"></i><i style="height:59%;animation-delay:0.60s"></i><i style="height:54%;animation-delay:0.66s"></i><i style="height:60%;animation-delay:0.72s"></i><i style="height:51%;animation-delay:0.78s"></i><i style="height:32%;animation-delay:0.84s"></i><i style="height:80%;animation-delay:0.90s"></i><i style="height:34%;animation-delay:0.96s"></i><i style="height:72%;animation-delay:1.02s"></i><i style="height:70%;animation-delay:1.08s"></i><i style="height:41%;animation-delay:1.14s"></i><i style="height:37%;animation-delay:1.20s"></i><i style="height:60%;animation-delay:1.26s"></i></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">03</div>
+        <div>
+          <div class="ttl">Get graded against the bar.</div>
+        </div>
+        <div class="desc">
+          A line-by-line scorecard, the exact moment you lost the room, and
+          what to drill before tomorrow's session.
+        </div>
+        <div class="visual s3">
+          <div class="grade"><span class="g">A−</span><span class="out">/ analyst bar</span></div>
+          <div class="row"><span class="key">Structure</span><span class="val">88</span></div>
+          <div class="seg"><i style="width:88%"></i></div>
+          <div class="row"><span class="key">Technical accuracy</span><span class="val">82</span></div>
+          <div class="seg"><i style="width:82%"></i></div>
+          <div class="row"><span class="key">Composure</span><span class="val">71</span></div>
+          <div class="seg"><i style="width:71%"></i></div>
+          <div class="row"><span class="key">Pacing</span><span class="val">90</span></div>
+          <div class="seg"><i style="width:90%"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── DEMO / SAMPLE QUESTION ───────────── -->
+<section class="sec demo" id="sample">
+  <div class="wrap">
+    <div class="demo-grid">
+      <div>
+        <span class="eyebrow"><span class="dot"></span> Sample question</span>
+        <h2 style="font-family:var(--serif);font-weight:300;font-variation-settings:'opsz' 144,'SOFT' 40;font-size:clamp(36px,4vw,54px);line-height:1.04;letter-spacing:-0.02em;margin:14px 0 0;color:var(--ink);max-width:14ch">
+          Try one. <em style="font-style:italic;color:var(--navy)">No login.</em>
+        </h2>
+        <p style="font-size:16px;color:var(--muted);max-width:42ch;line-height:1.6;margin-top:18px">
+          A live, timed question pulled from the M&amp;A pool. Answer it in
+          your head, then see how the AI grades it against an analyst's
+          scorecard.
+        </p>
+        <div style="margin-top:28px;display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+          <a class="btn btn-primary" href="#">Start the demo <span class="arrow">→</span></a>
+          <span class="eyebrow"><span class="dot"></span> 90 seconds · No signup</span>
+        </div>
+      </div>
+
+      <div class="demo-card">
+        <div class="top">
+          <span class="l">Q · 04 of 12 · Technical</span>
+          <span class="t" id="demo-timer">00:::10</span>
+        </div>
+        <div class="body">
+          <div class="q">
+            A target trades at 9.0× EBITDA. A sponsor pays 11.5× in an LBO.
+            Which assumption explains the premium most cleanly?
+          </div>
+          <div class="opts">
+            <div class="opt"><span>Lower interest rate environment.</span><span class="k">A</span></div>
+            <div class="opt sel"><span>Sponsor underwrites a higher exit multiple.</span><span class="k">B</span></div>
+            <div class="opt"><span>Higher synergies from add-on acquisitions.</span><span class="k">C</span></div>
+            <div class="opt"><span>Recurring revenue mix is stickier.</span><span class="k">D</span></div>
+          </div>
+          <div class="foot">
+            <span class="pace">Avg analyst · 38 sec</span>
+            <span class="submit">Submit ↵</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── FEEDBACK / SCORE ───────────── -->
+<section class="sec" id="proof">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow"><span class="dot"></span> Feedback that lands</span>
+        <h2>Graded the way <em>analysts</em> grade.</h2>
+      </div>
+      <p class="desc">
+        Every answer is scored on the four axes that interviewers actually
+        weigh. You see the ranking, the reasoning, and the exact prompts
+        you should drill before the next round.
+      </p>
+    </div>
+
+    <div class="score">
+      <div class="score-card">
+        <div class="hd">
+          <div>
+            <div class="l">Session 0421 · Round 02</div>
+            <div style="font-family:var(--serif);font-size:18px;color:var(--ink);font-weight:400;margin-top:6px">
+              Morrison &amp; Reed — Industrials
+            </div>
+          </div>
+          <div class="grade">A−</div>
+        </div>
+
+        <div class="crit">
+          <div class="crit-row">
+            <span class="name">Structure &amp; framing</span>
+            <span class="bar"><i style="width:88%"></i></span>
+            <span class="v">88</span>
+          </div>
+          <div class="crit-row">
+            <span class="name">Technical accuracy</span>
+            <span class="bar"><i style="width:82%"></i></span>
+            <span class="v">82</span>
+          </div>
+          <div class="crit-row">
+            <span class="name">Composure under follow-up</span>
+            <span class="bar"><i style="width:71%"></i></span>
+            <span class="v">71</span>
+          </div>
+          <div class="crit-row">
+            <span class="name">Pacing &amp; airtime</span>
+            <span class="bar"><i style="width:90%"></i></span>
+            <span class="v">90</span>
+          </div>
+          <div class="crit-row">
+            <span class="name">Commercial intuition</span>
+            <span class="bar"><i style="width:64%"></i></span>
+            <span class="v">64</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="notes">
+        <h4>Coach's notes — drill these before next session</h4>
+        <ul>
+          <li>Lead with <em>conclusion-first framing</em>. You buried the answer at 00:31; an MD would have cut you off.</li>
+          <li>The <em>terminal value</em> follow-up exposed thin ground. Pre-empt it: "exit multiple vs. perpetuity growth — here's which I'd defend, and why."</li>
+          <li>Tighten the <em>WACC build</em>. You stuttered on the equity risk premium twice. Memorize 5.0–5.5% as your default and move on.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── TESTIMONIALS ───────────── -->
+<section class="sec sec-tight" style="background:var(--cream-2);border-top:.5px solid var(--line);border-bottom:.5px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow"><span class="dot"></span> What students said</span>
+        <h2>Built by people who <em>sat where you sit.</em></h2>
+      </div>
+      <p class="desc">
+        HARDO was put together by a former GS analyst, a Lazard restructuring
+        associate, and an MIT recruiter. Every question pool is reviewed by
+        practitioners — not by a model alone.
+      </p>
+    </div>
+
+    <div class="testis">
+      <div class="testi">
+        <blockquote>
+          The follow-up questions were brutal in exactly the right way.
+          By superday I'd already heard worse from HARDO than I got in
+          the actual room.
+        </blockquote>
+        <div class="who">
+          <div class="ava">DR</div>
+          <div>
+            <div class="name">D. Reyes</div>
+            <div class="role">Incoming Analyst · Bulge Bracket M&amp;A</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi">
+        <blockquote>
+          I went from rambling for two minutes to a clean 60-second answer
+          after a week. The pacing meter alone was worth it.
+        </blockquote>
+        <div class="who">
+          <div class="ava">JS</div>
+          <div>
+            <div class="name">J. Sato</div>
+            <div class="role">Summer Analyst · Restructuring · Elite Boutique</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi">
+        <blockquote>
+          The scorecard told me my technicals were fine — composure was the
+          problem. Nobody else gave me feedback that specific.
+        </blockquote>
+        <div class="who">
+          <div class="ava">AK</div>
+          <div>
+            <div class="name">A. Khan</div>
+            <div class="role">Off-cycle Analyst · Industrials Coverage</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── PRICING ───────────── -->
+<section class="sec" id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow"><span class="dot"></span> Pricing</span>
+        <h2>Pay for the prep, <em>not the platform.</em></h2>
+      </div>
+      <p class="desc">
+        Start with three sessions free. Upgrade only if you want unlimited
+        questions and the full analyst-grade scorecard. Cancel any time;
+        no contracts, no upsell.
+      </p>
+    </div>
+
+    <div class="pricing">
+      <div class="price">
+        <div class="tier">Free trial</div>
+        <div class="num"><span class="d">$0</span><span class="per">/ forever</span></div>
+        <p class="lead">For students who want to see if HARDO clicks before paying a cent.</p>
+        <ul>
+          <li>3 mock sessions · technical &amp; behavioral</li>
+          <li>Pace &amp; clarity feedback</li>
+          <li>Letter grade per session</li>
+          <li>Single firm preset</li>
+        </ul>
+        <a class="btn btn-ghost cta" href="#">Start free <span class="arrow">→</span></a>
+        <div class="fine">No credit card</div>
+      </div>
+
+      <div class="price feature">
+        <div class="tier"><span>Practice</span><span class="tag">Most chosen</span></div>
+        <div class="num"><span class="d">$12</span><span class="per">/ month</span></div>
+        <p class="lead">For students recruiting actively — superdays in the next 8 weeks.</p>
+        <ul>
+          <li><b>Unlimited</b> mock interviews · all rounds</li>
+          <li>Full analyst-bar scorecard &amp; coach's notes</li>
+          <li>40+ firm presets · BB, EB, MM coverage</li>
+          <li>Question pool grows weekly</li>
+          <li>Recruiting-week priority support</li>
+        </ul>
+        <a class="btn btn-on-navy cta" href="#">Get Practice <span class="arrow">→</span></a>
+        <div class="fine">Cancel any time · billed monthly</div>
+      </div>
+
+      
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── FAQ ───────────── -->
+<section class="sec sec-tight" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow"><span class="dot"></span> FAQ</span>
+        <h2>The honest answers.</h2>
+      </div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-item">
+        <div class="q"><span class="n">01</span><span>Is this just ChatGPT in a wrapper?</span></div>
+        <div class="a">No. The question pool is hand-curated by analysts and associates from BB and EB shops. The grading rubric was calibrated against ~200 real first-round and superday transcripts. The AI runs the session; humans set the bar.</div>
+      </div>
+      <div class="faq-item">
+        <div class="q"><span class="n">02</span><span>How realistic is the "pressure" really?</span></div>
+        <div class="a">A 60-90s answer window, an unprompted follow-up the moment you finish, and an MD-style "okay — but what if rates rise 200bps?" cut-in. Most users describe their first session as harder than their actual first round.</div>
+      </div>
+      <div class="faq-item">
+        <div class="q"><span class="n">03</span><span>Which banks and groups are covered?</span></div>
+        <div class="a">14 bulge brackets, 9 elite boutiques, and 17 middle-market shops, with coverage- and product-group presets (M&amp;A, Restructuring, LevFin, Industrials, TMT, Healthcare, FIG, Real Estate). New presets added weekly during recruiting season.</div>
+      </div>
+      <div class="faq-item">
+        <div class="q"><span class="n">04</span><span>Can I cancel any time?</span></div>
+        <div class="a">Yes. Monthly billing, no minimum term. Cancel from the dashboard; access continues until the end of the current period. We don't run retention scripts.</div>
+      </div>
+      <div class="faq-item">
+        <div class="q"><span class="n">05</span><span>What about behavioral / fit interviews?</span></div>
+        <div class="a">Covered. The behavioral pool grades on STAR structure, specificity, and the "why this firm / why this group" answer. Same scorecard format as technicals, different rubric.</div>
+      </div>
+      <div class="faq-item">
+        <div class="q"><span class="n">06</span><span>Do you store my recordings?</span></div>
+        <div class="a">Audio is processed for transcription and grading and deleted within 24 hours. Transcripts and scorecards stay in your account so you can track progress. Delete the account, delete the data — same day.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── FINAL CTA ───────────── -->
+<section>
+  <div class="final">
+    <div class="final-grid">
+      <div>
+        <span class="eyebrow on-navy"><span class="dot"></span> Recruiting season closes in 9 weeks</span>
+        <h3>Stop rehearsing in the mirror.<br>Practice <em>under fire.</em></h3>
+      </div>
+      <div class="actions">
+        <a class="btn btn-on-navy" href="#">Try 3 free interviews <span class="arrow">→</span></a>
+        <a class="btn btn-ghost-on-navy" href="#pricing">See pricing</a>
+        <span class="eyebrow on-navy"><span class="dot"></span> No card · No login wall</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── FOOTER ───────────── -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <a href="#" class="logo" style="margin-bottom:14px">
+          <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="4" y="4" width="16" height="16" rx="2"></rect><path d="M9 8v8M9 12h6M15 8v8"></path></svg></span>
+          <span class="logo-word">HARDO</span>
+        </a>
+        <p style="font-size:13.5px;color:var(--muted);max-width:38ch;line-height:1.6;margin:0">
+          Mock interviews, graded against the bar at the desks you actually
+          want to sit at. Built by analysts, for the next class.
+        </p>
+      </div>
+      <div class="foot-col">
+        <h5>Product</h5>
+        <a href="#how">How it works</a>
+        <a href="#sample">Sample question</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#">Changelog</a>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Coaches</a>
+        <a href="#">Press</a>
+      </div>
+      <div class="foot-col">
+        <h5>Resources</h5>
+        <a href="#">Question vault</a>
+        <a href="#">Analyst notes</a>
+        <a href="#">Recruiting calendar</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <div>© 2026 HARDO LABS, INC. · NEW YORK</div>
+      <div class="legal">
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+        <a href="#">Security</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ───────────── React + Tweaks ───────────── -->
+<!-- ───────────── small enrichments ───────────── -->
+<script>
+  // bank ticker
+  (function(){
+    const firms = [
+      "Goldman Sachs","Morgan Stanley","JPMorgan","Evercore","Centerview",
+      "Lazard","Moelis","PJT Partners","Perella Weinberg","Houlihan Lokey",
+      "Guggenheim","Greenhill","Rothschild & Co","Jefferies","Bank of America"
+    ];
+    const row = document.getElementById('marq');
+    const html = firms.map(f=>`<span class="firm">${f}<span class="firm-dot"></span></span>`).join('');
+    row.innerHTML = html + html; // duplicate for seamless loop
+  })();
+
+  // waveform bars
+  (function(){
+    const heroWf = document.getElementById('wf');
+    const stepWf = document.getElementById('step-wf');
+    [heroWf, stepWf].forEach(el=>{
+      if(!el) return;
+      const n = el === heroWf ? 56 : 22;
+      let html = "";
+      for(let i=0;i<n;i++){
+        const h = 28 + Math.round(Math.random()*55);
+        const d = (i*0.06).toFixed(2);
+        html += `<i style="height:${h}%;animation-delay:${d}s"></i>`;
+      }
+      el.innerHTML = html;
+    });
+  })();
+
+  // hero timer countdown — ticks down then loops, color shifts
+  (function(){
+    const el = document.getElementById('hero-timer');
+    const stepEl = document.getElementById('step-timer');
+    const demoEl = document.getElementById('demo-timer');
+    if(!el) return;
+    let s = 47;
+    function fmt(n){
+      const m = Math.floor(n/60).toString().padStart(2,'0');
+      const sec = (n%60).toString().padStart(2,'0');
+      return `${m}<span class="sep">:</span>${sec}`;
+    }
+    function tick(){
+      s -= 1;
+      if(s < 0) s = 47;
+      el.innerHTML = fmt(s);
+      el.classList.toggle('warn', s <= 30 && s > 10);
+      el.classList.toggle('danger', s <= 10);
+      if(stepEl) stepEl.textContent = fmt(s).replace(/<[^>]+>/g,':');
+      if(demoEl){
+        // demo timer counts down from 1:14
+        const d = (74 + (s%60)) % 90;
+        demoEl.textContent = fmt(d).replace(/<[^>]+>/g,':');
+      }
+    }
+    el.innerHTML = fmt(s);
+    setInterval(tick, 1000);
+  })();
+</script>
+
+
+</body></html>
